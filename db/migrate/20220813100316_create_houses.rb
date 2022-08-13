@@ -12,7 +12,6 @@ class CreateHouses < ActiveRecord::Migration[7.0]
       t.integer :station_distance_time
       t.integer :built_year
       t.integer :floor
-      t.references :house_list, null: false, foreign_key: true
 
       t.timestamps
     end
