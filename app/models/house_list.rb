@@ -1,0 +1,2 @@
+class HouseList < ApplicationRecord
+end

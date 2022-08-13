@@ -1,2 +1,12 @@
 // create git repo
 
+
+// create gh repo
+// create heroku repo
+// setup remote gh, heroku
+
+// add, commit, push
+
+// check .env gitignore
+
+
