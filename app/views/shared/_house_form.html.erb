@@ -1,0 +1,13 @@
+<div class="container p-3">
+    <%= simple_form_for(@house_list) do |f| %>
+      <%= f.input :name %>
+      <p>How important is:</p>
+      <%= f.input :total_price, hint: 'Put a number. The greater the number, the more important.' %>
+      <%= f.input :floor_area %>
+      <%= f.input :station_distance_time %>
+      <%= f.input :built_year %>
+      <%= f.input :floor %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Submit"%>
+    <% end %>
+</div>

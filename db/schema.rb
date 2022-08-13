@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_13_122437) do
   create_table "house_lists", force: :cascade do |t|
     t.string "name"
     t.integer "total_price"
-    t.float "floor_area"
+    t.integer "floor_area"
     t.integer "station_distance_time"
     t.integer "built_year"
     t.integer "floor"
@@ -75,6 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_13_122437) do
     t.integer "station_distance_time"
     t.integer "built_year"
     t.integer "floor"
+    t.string "house_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,22 @@
+<div class="container p-3">
+  <h1>House lists</h1>
+</div>
+<div class="container">
+<%= link_to "Add list", new_house_list_path, class: 'btn btn-primary mb-3'  %>
+</div>
+<div class="container">
+  <div class="cards">
+    <% @house_lists.each do |house_list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= house_list.name %>
+        <%= link_to edit_house_list_path(house_list) do %>
+          <i class="fa-solid fa-circle-plus"></i>
+        <% end %>
+        <%= link_to house_list_path(house_list) do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %>
+      </div>
+      <%= link_to '', house_list_path(house_list), class: 'link-card' %>
+    <% end %>
+  </div>
+</div>
