@@ -4,9 +4,20 @@
 // create gh repo
 // create heroku repo
 // setup remote gh, heroku
-
+// add Cloudinary in gemfile
+// bundle install
+// add key to env file
+// install active storage
+// add Cloudinary to storage.yml
+// change storage to Cloudinary in Development and Production environment
 // add, commit, push
 
 // check .env gitignore
 
 
+// create models
+// create validate and association for model
+// create routes
+
+// create controllers
+// create views
