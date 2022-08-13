@@ -42,14 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_13_122437) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "compare_houses", force: :cascade do |t|
+  create_table "house_comparisons", force: :cascade do |t|
     t.text "comment"
     t.bigint "house_id", null: false
     t.bigint "house_list_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["house_id"], name: "index_compare_houses_on_house_id"
-    t.index ["house_list_id"], name: "index_compare_houses_on_house_list_id"
+    t.index ["house_id"], name: "index_house_comparisons_on_house_id"
+    t.index ["house_list_id"], name: "index_house_comparisons_on_house_list_id"
   end
 
   create_table "house_lists", force: :cascade do |t|
@@ -89,7 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_13_122437) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "compare_houses", "house_lists"
-  add_foreign_key "compare_houses", "houses"
+  add_foreign_key "house_comparisons", "house_lists"
+  add_foreign_key "house_comparisons", "houses"
   add_foreign_key "reviews", "houses"
 end
