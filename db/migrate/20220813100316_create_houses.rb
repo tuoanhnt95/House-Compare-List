@@ -13,6 +13,7 @@ class CreateHouses < ActiveRecord::Migration[7.0]
       t.integer :built_year
       t.integer :floor
       t.string :house_url
+      t.string :img_src
       t.timestamps
     end
   end

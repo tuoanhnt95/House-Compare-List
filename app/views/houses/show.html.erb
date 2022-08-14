@@ -1,12 +1,11 @@
 <div class="container">
-
-<%= @house.name %>
-
-<ul>
-  <li>
-    <%= number_with_delimiter(@house.rent_fee.to_i, :delimiter => ',') %> yen/month
-  </li>
-
-</ul>
-
+  <%= @house.name %>
+  <ul>
+    <li>
+      Rent: <%= number_with_delimiter(@house.rent_fee.to_i, :delimiter => ',') %> yen/month
+    </li>
+    <li>
+      Management fee: <%= number_with_delimiter(@house.mng_fee.to_i, :delimiter => ',') %> yen/month
+    </li>
+  </ul>
 </div>
