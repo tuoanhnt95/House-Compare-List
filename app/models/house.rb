@@ -3,9 +3,9 @@
 
 class House < ApplicationRecord
 
-  # has_many :reviews, dependent: destroy
-  # has_many :house_comparisons, dependent: destroy
- # belongs_to :house_list, through: house_comparisons
+  has_many :reviews, dependent: :destroy
+  has_many :house_comparisons, dependent: :destroy
+  # belongs_to :house_list, through: :house_comparisons
 
   validates :house_url, presence: true
   validates :rent_fee, numericality: { greater_than_or_equal_to: 0 }

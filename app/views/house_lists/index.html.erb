@@ -12,11 +12,11 @@
         <%= link_to edit_house_list_path(house_list) do %>
           <i class="fa-solid fa-circle-plus"></i>
         <% end %>
-        <%= link_to house_list_path(house_list) do %>
+        <%= link_to house_list_path(house_list), class: 'card-remove-link' do %>
           <i class="fa-solid fa-trash-can"></i>
         <% end %>
+        <%= link_to '', house_list_path(house_list), class: 'link-card' %>
       </div>
-      <%= link_to '', house_list_path(house_list), class: 'link-card' %>
     <% end %>
   </div>
 </div>

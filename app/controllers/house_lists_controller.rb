@@ -3,6 +3,7 @@ class HouseListsController < ApplicationController
 
   def index
     @house_lists = HouseList.all
+    raise
   end
 
   def show
@@ -31,6 +32,11 @@ class HouseListsController < ApplicationController
     else
       render house_lists_path, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @house_list.destroy
+    redirect_to house_lists_path, status: :see_other
   end
 
   private

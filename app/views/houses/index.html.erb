@@ -7,16 +7,16 @@
 <div class="container">
   <div class="cards">
     <% @houses.each do |house| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= house[:img_url] %> )">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= house[:img_src] %> )">
         <%= house.name %>
         <%= link_to edit_house_path(house) do %>
           <i class="fa-solid fa-circle-plus"></i>
         <% end %>
-        <%= link_to house_path(house) do %>
+        <%= link_to house_path(house), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
           <i class="fa-solid fa-trash-can"></i>
         <% end %>
+        <%= link_to '', house_path(house), class: 'link-card' %>
       </div>
-      <%= link_to '', house_path(house), class: 'link-card' %>
     <% end %>
   </div>
 </div>
