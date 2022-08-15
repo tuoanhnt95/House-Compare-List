@@ -35,6 +35,14 @@ class HousesController < ApplicationController
   end
 
   def show
+    @rent_fee = @house.rent_fee.to_i
+    @mng_fee = @house.mng_fee.to_i
+    @lease_deposit = @house.lease_deposit.to_i
+    @key_money = @house.key_money.to_i
+    @guarantee_deposit = @house.guarantee_deposit.to_i
+    @station_distance_time = @house.station_distance_time.to_i
+    @built_year = @house.built_year.to_i
+    @floor = @house.floor.to_i
   end
 
   def new
@@ -69,6 +77,11 @@ class HousesController < ApplicationController
       :house_url, :name, :layout, :rent_fee, :mng_fee, :lease_deposit,
       :key_money, :guarantee_deposit, :floor_area, :station_distance_time, :built_year, :floor, :photo, :img_src
     )
+  end
+
+  def parse(url)
+    html_file = URI.open(url).read
+    html_doc = Nokogiri::HTML(html_file)
     domain = SUUMO_HTML
     scrape = {}
     # search values from HTML-inner_text

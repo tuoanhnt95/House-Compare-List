@@ -7,8 +7,8 @@
 <div class="container">
   <div class="cards">
     <% @houses.each do |house| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= house[:img_src] %> )">
-        <p>#<%= house.id %></p>
+      <div class="card-trip" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= house[:img_src] %> )">
+        <p><%= house.rent_fee %></p>
         <%= link_to '', house_path(house), class: 'link-card' %>
       </div>
     <% end %>
