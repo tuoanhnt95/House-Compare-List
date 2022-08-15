@@ -3,7 +3,6 @@ class HouseListsController < ApplicationController
 
   def index
     @house_lists = HouseList.all
-    raise
   end
 
   def show

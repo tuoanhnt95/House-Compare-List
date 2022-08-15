@@ -1,11 +1,7 @@
-// get the url
-// from the url, the other info will be scraped automatically
 <div class="container">
   <h1>New house</h1>
-
   <%= simple_form_for(@house) do |f| %>
     <%= f.input :house_url %>
-    <%= f.input :name %>
     <%= f.submit %>
   <% end %>
 </div>

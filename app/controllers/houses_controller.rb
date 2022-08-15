@@ -3,29 +3,28 @@ require 'nokogiri'
 
 # regex to match the html string containing the number
 SUUMO_REGEX = {
-  # layout:
-  rent_fee: /(.+)円/,
-  mng_fee: /([\d.-]+)/
-  # lease_deposit:
-  # key_money:
-  # guarantee_deposit:
-  # floor_area:
-  # station_distance_time:
-  # built_year:
-  # floor:
+  rent_fee: /([\d.-]+)/,
+  mng_fee: /([\d.-]+)/,
+  lease_deposit: /([\d.-]+)/,
+  key_money: /([\d.-]+)/,
+  guarantee_deposit: /([\d.-]+)/,
+  floor_area: /([\d.-]+)m/,
+  station_distance_time: /([\d.-]+)/,
+  built_year: /([\d.-]+)/,
+  floor: /([\d.-]+)/
 }
 
 SUUMO_HTML = {
-  # layout: "",
+  layout: "div.l-property_view_table tr:nth-child(3) td:nth-child(2)",
   rent_fee: ".property_view_note-emphasis",
-  mng_fee: ".property_view_note-list:first-child span:nth-child(2)"
-  # lease_deposit: ".property_view_note-list span",
-  # key_money: ".property_view_note-list span",
-  # guarantee_deposit: ".property_view_note-list span"
-  # floor_area:
-  # station_distance_time:
-  # built_year:
-  # floor:
+  mng_fee: ".property_view_note-list:first-child span:nth-child(2)",
+  lease_deposit: ".property_view_note-list:nth-child(2) span:first-child",
+  key_money: ".property_view_note-list:nth-child(2) span:nth-child(2)",
+  guarantee_deposit: ".property_view_note-list:nth-child(2) span:nth-child(3)",
+  floor_area: "div.l-property_view_table tr:nth-child(3) td:nth-child(4)",
+  station_distance_time: "div.l-property_view_table .property_view_table-body .property_view_table-read:first-child",
+  built_year: "div.l-property_view_table tr:nth-child(4) td:nth-child(2)",
+  floor: "div.l-property_view_table tr:nth-child(4) td:nth-child(4)"
 }
 
 class HousesController < ApplicationController
@@ -53,27 +52,10 @@ class HousesController < ApplicationController
     end
     # save house or return error
     if @house.save
-      redirect_to house_path(@house)
+      redirect_to houses_path
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-  end
-
-  def update
-    @house.update(house_params)
-    if @house.save
-      redirect_to house_path(@house)
-    else
-      render houses_path, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @house.destroy
-    redirect_to houses_path, status: :see_other
   end
 
   private
