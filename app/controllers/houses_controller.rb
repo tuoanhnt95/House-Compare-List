@@ -69,12 +69,6 @@ class HousesController < ApplicationController
       :house_url, :name, :layout, :rent_fee, :mng_fee, :lease_deposit,
       :key_money, :guarantee_deposit, :floor_area, :station_distance_time, :built_year, :floor, :photo, :img_src
     )
-  end
-
-  def parse(url)
-    html_file = URI.open(url).read
-    html_doc = Nokogiri::HTML(html_file)
-    # future: have a function to check which domain
     domain = SUUMO_HTML
     scrape = {}
     # search values from HTML-inner_text
