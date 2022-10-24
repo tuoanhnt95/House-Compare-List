@@ -1,6 +1,7 @@
 <div class="container">
   <h1>New house</h1>
   <%= simple_form_for(@house) do |f| %>
+    <%= f.input :name %>
     <%= f.input :house_url %>
     <%= f.submit %>
   <% end %>
