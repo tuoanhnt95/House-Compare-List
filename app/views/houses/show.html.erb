@@ -7,5 +7,7 @@
     <li>
       Management fee: <%= number_with_delimiter(@house.mng_fee.to_i, :delimiter => ',') %> yen/month
     </li>
+    <button class="btn btn-primary">Add to list</button>
   </ul>
+  <img src="<%= @house[:img_src] %>" alt="">
 </div>
